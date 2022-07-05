@@ -2,7 +2,7 @@
 """
 Created on Fri Jul  1 09:31:50 2022
 
-@author: ok
+@author: Vitalik Hakim
 """
 
 `Algorithm` -- A set of rules and statistics techiniques used
@@ -32,10 +32,10 @@ The machine learning process involves building a predictive model that can be us
 # Example one (Predict the weather in local area)
 ## Step 1. To predict the possibility of rain by studying the weather conditions
 Questions to ask
--) What are we trying to predict?
--) What are the target features?
--) What is the input data?
--) What kind of problem are you facing
+*  What are we trying to predict?
+* What are the target features?
+* What is the input data?
+* What kind of problem are you facing
 ie. Binary classification or clustering
 
 ## Step 2. Data Gathering
@@ -130,25 +130,25 @@ Popular algorithms:
 # Types of problems solved using Machine Learning
 
 ## Regression
- @Supervised learning
- @Output is a continous Quantity
- @Main aim is to forecast or predict
- @ Example is predict stock market price
- @ Algorithm: Linear Regression
+* Supervised learning
+* Output is a continous Quantity
+* Main aim is to forecast or predict
+* Example is predict stock market price
+* Algorithm: Linear Regression
 
 ## Classification
- @ Supervised Learning
- @Output is a catergorical quantity
- @ Main aim is to compute category of the data
- @ Eg. Classify emails as spam or non-Spam
- @ Algorithm: Logistic regression
+* Supervised Learning
+* Output is a catergorical quantity
+* Main aim is to compute category of the data
+* Eg. Classify emails as spam or non-Spam
+* Algorithm: Logistic regression
  
 ## Clustering
- @ Unsupervised Learning
- @ Assigns data points into clusters
- @ Main aim is to group similar items into clusters
- @ Eg. Find all transactions which were fraudulent in nature
- @Algorithm: K-means
+ * Unsupervised Learning
+ * Assigns data points into clusters
+ * Main aim is to group similar items into clusters
+ * Eg. Find all transactions which were fraudulent in nature
+ * Algorithm: K-means
 
 
 
@@ -197,9 +197,106 @@ This is a method used to predict a dependent variable given a set of independent
           Cross multiply
     p(e(B0 + B1x) + 1) = e(B0 + B1x)
     p.e(B0 + B1x) + p = e(B0 + B1x)
-    p = e(B0 + B1x) -e(B0 + B1x) + p
+    p = e(B0 + B1x) -  p.e(B0 + B1x) 
+    p = e(B0 + B1x) (1-p)
+    p//(1-p) = e(B0 + B1x) 
+    ln[p//(1-p)] = (B0 + B1x)
+ Used for classification
+ The output variable is always a categorical variable
+ 
+## Decision Tree
+
+This is a supervised machine learning algorithm which looks
+like an inverted tree wherein each node represents a predictor variable
+the link between the nodes represents a decision and each leaf node represents an outcome
+
+Structure of a decision tree
+
+Root Node: This is the starting point of a tree. At this point the first split is performed
+
+Internal Nodes: Each internal node represents a decision point(predictor variable) 
+that eventually leads to the prediction of the outcome
+
+Leaf / Terminal Nodes: Leaf nodes represent the final class of the outcome and therefore they're' are also called
+Termating nodes
+
+Branches: Branches are connections between nodes 
+ they are represented as arrows. Each branch represents
+ a responce such as yes or no.
+ 
+### Steps to make decision tree
+
+1. Select the best attribute A
+The data with the best information gain
+best divides the data into the desired output classes
+
+So we need to calculate the following measures:
+
+1. Entropy
+This measures  the impurity or uncertainity present in the data
+
+2. Information Gain
+This indicates how much 'information' a particular feature / variable gives about the final outcome
+
+Example calculate the IG of parent node (Speed of a car)
+
+Find out the fraction of the two classess (slow and fast) present in the parent node:
+
+P(slow) -) fraction of 'slow' outcomes in the parent node
+
+P(fast) -) fraction of 'fast' outcomes in the parent node
+
+The formula to calculate P(slow) is 
+= number of 'slow' outcomes in the parent node/ total number of outcomes
+
+The formula to calculate P(fast) is 
+= number of 'fast' outcomes in the parent node/ total number of outcomes
+
+
+Calculate the Entropy
+Entropy(parent) = -sigmaP(slow)log2(Pslow) + P(fast)log2(Pfast)
+
+Calculating the IG of the child npde (Road type)
+
+information Gain = entropy(parent) - [weighted average] * entropy(children)
+ 
+2. Assign A as a decision variable for the root node
+3. For each value of A. Build a descendant of the node
+4. Assign classification labels to the leaf node
+5. If data is correctly classified. Stop
+6. Else iterate over the tree
+
  
  
- 
- 
- 
+## Random Forest
+
+This is a collection of multiple decision trees ( calleda forest) and glues them together to get a more
+accurate and stable prediction.
+
+It is:
+    More accurate
+    Avoid Overfitting
+    Bagging
+    
+Bootstraping is an estimation method used to make predictions on a data set
+by re-sampling it.
+
+## Naive Bayes
+
+This is based on Bayes Theorem that is used to solve classification problems by
+following a probabilistic approach
+
+* P(A|B): Conditional probability of event A occuring given the event B
+* P(A): Probability of event A occuring
+* P(B): Probabiity of event B occuring
+* P(B|A): Condttional probability of event B occuring given the event A
+
+
+## KNN (K Nearest Neighbour)
+
+This is a supervised learning algorithm that classifies a new data point into the target class depending on the features
+of its neigbouring data points
+
+
+
+    
