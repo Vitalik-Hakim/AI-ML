@@ -1,2 +1,2 @@
 # AI-ML
-My AI ML path to having knowledge in Artificial Intelligence
+AI ML path to having knowledge in Artificial Intelligence
